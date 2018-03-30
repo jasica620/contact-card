@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Card</title>
+	<link rel="stylesheet" type="text/css" href="contact.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+				$("button").click(function(){
+					var first_name = $("#first_name").val();
+					var last_name = $("#last_name").val();
+						var contact = "<div class='card'>\
+								<p>Name:"+first_name+" "+last_name+"</p>\
+								<p>Click for description</p>\
+								</div>"
+							$("#1st").append(first_name);
+							$("#last").append(last_name);
+					$("#addcard").append(contact);
+			});
+			$(document).on("click",".card", function(){
+				var des = $("#des").val();
+				var description = "<p>"+des+"</p>"
+				$(".card p").hide("fast");
+				$(".card").append(description);
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Contact Cards</h1>
+	<div id="enter">
+		<label for="first_name">First Name:</label>
+		<input type="text" name="first_name" id="first_name">
+		<label for="last_name">Last Name:</label>
+		<input type="text" name="last_name" id="last_name">
+		<label for="des">Description:</label>
+		<textarea type="text" name="des" id="des"></textarea>
+
+	</div>
+	<button>Add User</button>
+	<div id="addcard">
+	</div>
+</body>
+</html>
